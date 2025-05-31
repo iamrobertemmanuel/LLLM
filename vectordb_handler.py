@@ -1,14 +1,15 @@
 from langchain_chroma import Chroma
-from langchain_ollama import OllamaEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from utils import load_config
 import chromadb
+import os
 
 config = load_config()
 
-def get_ollama_embeddings():
-    return OllamaEmbeddings(model=config["ollama"]["embedding_model"], base_url=config["ollama"]["base_url"])
+def get_google_embeddings():
+    return GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
-def load_vectordb(embeddings=get_ollama_embeddings()):
+def load_vectordb(embeddings=get_google_embeddings()):
     persistent_client = chromadb.PersistentClient(config["chromadb"]["chromadb_path"])
 
     langchain_chroma = Chroma(
