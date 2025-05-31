@@ -12,9 +12,15 @@ load_dotenv()
 config = load_config()
 
 # Configure Gemini - try environment variable first, then config file
-gemini_api_key = os.getenv('GEMINI_API_KEY') or config.get("gemini", {}).get("api_key")
+gemini_api_key = os.getenv('GEMINI_API_KEY')
 if not gemini_api_key:
-    raise ValueError("Gemini API key not found in environment variables or config file")
+    st.error("""
+    Gemini API key not found! Please set up your API key:
+    1. Create a .env file in your project root
+    2. Add this line: GEMINI_API_KEY=your_api_key_here
+    3. Get your API key from: https://makersuite.google.com/app/apikey
+    """)
+    raise ValueError("Gemini API key not found in environment variables")
 
 genai.configure(
     api_key=gemini_api_key,

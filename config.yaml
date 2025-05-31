@@ -13,4 +13,4 @@ chromadb:
 chat_sessions_database_path: "./chat_sessions/chat_sessions.db"
 
 gemini:
-  api_key: "${GEMINI_API_KEY}"  # This will be loaded from environment variables
+  api_key: "" # Set this via GEMINI_API_KEY environment variable
