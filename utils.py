@@ -136,3 +136,19 @@ def get_avatar(sender_type):
 def save_config(config):
     with open("config.yaml", "w") as f:
         yaml.dump(config, f, default_flow_style=False)
+
+def list_available_models():
+    """Returns a dictionary of available models from different providers."""
+    models = {
+        "gemini": [
+            "gemini-2.0-flash",
+            "gemini-pro",
+            "gemini-1.0-pro",
+            "gemini-pro-vision",
+            "gemini-1.0-pro-vision",
+            "gemini-ultra",
+            "gemini-ultra-vision"
+        ],
+        "openai": list_openai_models()
+    }
+    return models
