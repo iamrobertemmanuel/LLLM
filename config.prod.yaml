@@ -1,0 +1,21 @@
+gemini:
+  api_key: ${GEMINI_API_KEY}
+  model: "gemini-2.0-flash"
+  vision_model: "gemini-pro-vision"
+  embedding_model: "embedding-001"
+
+whisper_model: "openai/whisper-small"
+
+chromadb:
+  chromadb_path: "/tmp/chroma_db"
+  collection_name: "pdfs"
+
+chat_sessions_database_path: "/tmp/chat_sessions/chat_sessions.db"
+
+openai:
+  api_key: ${OPENAI_API_KEY}
+  model: "gpt-3.5-turbo"
+
+ollama:
+  base_url: ${OLLAMA_BASE_URL}
+  model: "llama2" 
